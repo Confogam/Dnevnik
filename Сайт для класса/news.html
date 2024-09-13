@@ -4,11 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .news-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 20px;
+            margin: 3%;
+        }
+        
+        .news-image {
+            width: 25%;
+            flex: 0 0 auto;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            display: flex; justify-content: center;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .news-image img {
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .news-content {
+            width: 75%;
+        }
+        
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .news-text {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        </style>
     <title>Новости</title>
 </head>
 <body>
-    <p>Временно недоступно по техническим причинам!</p>
+    <div class="news-container">
+        <div class="news-image">
+            <img src="https://school.nso.ru/assets/dist/logo.2d7f18b9.png">
+        </div>
+        <div class="news-content">
+            <div class="news-title">Восстановили работу электронного дневника</div>
+            <div class="news-text">
+                Электронный дневник снова заработал. Однако запасной сайт по-прежнему будет доступен и продолжит обновляться.
+            </div>
+        </div>
+    </div>
 </body>
 </body>
 </html>
