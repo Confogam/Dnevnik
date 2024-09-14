@@ -44,7 +44,7 @@ nav ul li a {
 
 iframe {
     width: 100%;
-    height: calc(100vh - 50px);
+    height: 100vh;
     border: none;
 }
 
