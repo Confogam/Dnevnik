@@ -16,15 +16,17 @@
         .news-container {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
             border: 1px solid #ddd;
             padding: 10px;
             border-radius: 20px;
-            margin: 3%;
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
         
         .news-image {
-            width: 25%;
+            height: 100px;
+            width: 155px;
             flex: 0 0 auto;
             margin-right: 10px;
             border: 1px solid #ddd;
@@ -34,7 +36,6 @@
         }
         
         .news-image img {
-            height: 100%;
             border-radius: 4px;
         }
         
@@ -52,7 +53,12 @@
             font-size: 16px;
             line-height: 1.6;
         }
-        
+
+        .news-about {
+            font-style: italic;
+            color: gray;
+        }
+
         @media screen and (max-width:767px) {
             .news-container {
                 display: block;
@@ -67,6 +73,39 @@
 <body>
     <div class="news-container">
         <div class="news-image">
+            <img src="https://navigator.edu54.ru/images/events/cover/188602efc91363c668f8adbaf758dd0d_big.jpg">
+        </div>
+        <div class="news-content">
+            <details>
+<summary><div class="news-title">Программа «Путь к себе»</div></summary>
+            <div class="news-text">
+                <p>Приглашаем ребят 13-17 лет в группу "Путь к себе".</p>
+                <p>Занятия направлены на решение следующих задач:</p>
+                <ul>
+                    <li>повысить уверенность в себе и своих силах;</li>
+                    <li>развить умение управлять своими эмоциями;</li>
+                    <li>научиться новым способам общения с другими;</li>
+                    <li>научиться правильно решать конфликтные ситуации, чувствовать свои границы и границы других.</li>
+                </ul>
+                <p>Старт: 2 октября​ 2024 года.</p>
+                <p>Занятия проходят по средам с 9:30-11:00 (для 2 смены) и с 15:00-16:30 (для 1 смены).</p>
+                <p>Программа рассчитана на 24 занятия в течение 6 месяцев</p>
+                <p>Адрес: ул. Народная, 63.</p>
+                <p>Записаться по тел.: <a href="tel:(383) 304-71-24">(383) 304-71-24</a> доп. 610 (с сотового #610#)</p>
+                <p>Ведущие педагоги-психологи отдела кризисной психологии центра «Магистр»</p>
+                <p>Подробная информация: <a href="https://navigator.edu54.ru/program/22919-programma-put-k-sebe">https://navigator.edu54.ru/program/22919-programma-put-k-sebe</a></p>
+                <p>Программа «Путь к себе»</p>
+                <p><a href="https://navigator.edu54.ru/program/22919-programma-put-k-sebe">https://navigator.edu54.ru/program/22919-programma-put-k-sebe</a></p>
+                <div class="news-about">
+                    <p>Информация от Алисы Кувшид</p><p class="article-date" data-date="2024-09-19T11:17:00">Опубликовано </p>
+                </div>
+            </div>
+            </details>
+            
+        </div>
+    </div>
+    <div class="news-container">
+        <div class="news-image">
             <img src="https://school.nso.ru/assets/dist/logo.2d7f18b9.png">
         </div>
         <div class="news-content">
@@ -76,6 +115,55 @@
             </div>
         </div>
     </div>
+    <script>
+        // Функция для форматирования даты
+        function getFormattedDate(date) {
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+
+        return `${day}.${month}.${year} ${hours}:${minutes}`;
+        }
+
+        // Функция для определения времени, прошедшего с момента публикации статьи
+        function getTimeAgo(date) {
+        const now = new Date();
+        const diff = now.getTime() - date.getTime();
+
+        const seconds = Math.floor(diff / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        if (days > 0) {
+            return `Опубликовано ${days} дней назад`;
+        } else if (hours > 0) {
+            return `Опубликовано ${hours} часов назад`;
+        } else if (minutes > 0) {
+            return `Опубликовано ${minutes} минут назад`;
+        } else {
+            return `Опубликовано только что`;
+        }
+        }
+
+        // Функция для обновления времени публикации статьи
+        function updateArticleDates() {
+        const articleDates = document.querySelectorAll('.article-date');
+
+        articleDates.forEach((element) => {
+            const date = new Date(element.getAttribute('data-date'));
+            const timeAgo = getTimeAgo(date);
+            const formattedDate = getFormattedDate(date);
+            element.innerHTML = `${timeAgo} (${formattedDate})`;
+        });
+        }
+
+        // Вызов функции обновления времени публикации статьи при загрузке страницы
+        document.addEventListener('DOMContentLoaded', updateArticleDates);
+        setInterval(updateArticleDates, 60000); // обновлять каждую минуту
+    </script>
 </body>
 </body>
 </html>
