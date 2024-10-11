@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебники / Запасной электронный дневник</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+</head>
+
+<body>
+    <!-- Модальное окно 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="https://i.pinimg.com/736x/65/55/f1/6555f1f9f35752f19656aaac9298cd8a.jpg" alt="Картинка" class="modal-image">
+            <div class="modal-message">
+                <p>Требуется домашняя работа на 13 сентября (пятница).</p>
+            </div>
+            <button class="modal-button" onclick="window.open('https://forms.yandex.ru/u/66e2c5a65d2a0628ccbf50f8/', '_blank')">Отправить домашнюю работу</button>
+        </div>
+    </div>
+    -->
+    <div id="link-modal" class="link-modal">
+        <div class="link-modal-content">
+          <span class="close-link-modal" onclick="closeModalLink()">&times;</span>
+          <iframe id="link-modal-iframe" src=""></iframe>
+        </div>
+    </div>
+    <div class="loader">
+        <div class="circle-spin-8"></div>
+    </div>
+    <main>
+        <nav>
+            <div id="head-nav">
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </label>
+                
+                <label id="overlay" for="sidebar-active"></label>
+
+                <div id="head-nav-left">
+                    <img src="favicon.svg" class="logo"> <h1>Запасной Электроный Дневник</h1>
+                </div>
+                <div id="head-nav-right">
+                    <label for="sidebar-active" class="close-sidebar-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </label>
+
+                    <a href="index.html"><i class="bx bxs-book"></i><br>Дневник</a>
+                    <a href="news.html"><i class="bx bxs-news"></i><br>Объявления</a>
+                    <a href="uchebniki.html"><i class="bx bx-library"></i><br>Учебники</a>
+                    <a href="teachers.html"><i class="bx bxs-group"></i><br>Люди</a>
+                    <a href="chat.html"><i class="bx bxs-chat"></i><br>Чаты</a>
+                </div>
+            </div>
+        </nav>
+       <!-- Yandex.RTB R-A-12214195-1 -->
+        <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-12214195-1",
+                "type": "floorAd",
+                "platform": "desktop"
+            })
+        })
+        </script>
+        <!-- Yandex.RTB R-A-12214195-2 -->
+        <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-12214195-2",
+                "type": "floorAd",
+                "platform": "touch"
+            })
+        })
+        </script>
+
+        <div class="ucheb-cont">
+            <img src="media/imgs/informatika-uchebnik.webp">
+            <h2>Информатика (Л.Л. Босова, А.Ю. Босова)</h2>
+            <div class="ucheb-btns">
+                <a href="media/docs/Информатика 8 класс учебник Босова Л. Л. 2023.pdf" class="ucheb-btn-view" onclick="openModalLink(this)"><i class="material-icons">visibility</i> Просмотр</a>
+                <a href="media/docs/Информатика 8 класс учебник Босова Л. Л. 2023.pdf" class="ucheb-btn-download" download=""><i class="material-icons">download</i> Скачать</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Источник информации предоставил Данияр</p>
+            <p>Связаться с помощью:</p>
+            <div id="contacts">
+                <a href="https://wa.me/79133885667" class="contact-wa">
+                    <i class="bx bxl-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/confogam" class="contact-tg">
+                    <i class="bx bxl-telegram"></i> Telegram
+                </a>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+</body>
+</html>
+</html>

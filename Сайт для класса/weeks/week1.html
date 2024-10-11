@@ -10,48 +10,6 @@
 <body>
     <main>
         <section class="diary">
-            <style type="text/css">
-                .tg {
-                    border-collapse: collapse;
-                    border-spacing: 0;
-                    width: 100%; /* Делает таблицу растягивающейся на 100% ширины родительского элемента */
-                    overflow-x: auto; /* Добавляет горизонтальную прокрутку, если таблица слишком широкая */
-                }
-                .tg td, .tg th {
-                    background-color: #fff;
-                    border: 1px solid #aaa;
-                    color: #333;
-                    font-family: Arial, sans-serif;
-                    font-size: 14px;
-                    padding: 10px 5px;
-                    word-break: break-word; /* Разрывает длинные слова для предотвращения выхода за пределы ячейки */
-                }
-                .tg th {
-                    background-color: #f38630;
-                    color: #fff;
-                    font-weight: normal;
-                }
-                .tg .tg-benw {
-                    background-color: #FCFBE3;
-                    text-align: left;
-                }
-                .tg .tg-c3ow {
-                    text-align: center;
-                }
-                .tg .tg-fzdr {
-                    text-align: center;
-                }
-                .tg .tg-wo29 {
-                    text-align: left;
-                }
-                
-                @media (max-width: 600px) {
-                    .tg th, .tg td {
-                        font-size: 12px; /* Уменьшает размер шрифта для маленьких экранов */
-                        padding: 8px 4px; /* Уменьшает отступы внутри ячеек */
-                    }
-                }
-            </style>
             <h1>9 сентября - 15 сентября</h1>
                 <table class="tg" style="table-layout: fixed; width: 974px"><colgroup>
                 <col style="width: 110px">
@@ -264,5 +222,21 @@
                 </tbody>
             </table>
     </main>
+    <script>
+      // Отправляем сообщение о высоте iframe родительской странице
+      function updateIframeHeight() {
+        window.parent.postMessage({ type: 'iframeHeight', height: document.body.scrollHeight }, '*');
+      }
+  
+      // Отправляем сообщение при первой загрузке
+      window.addEventListener('DOMContentLoaded', function() {
+        updateIframeHeight();
+      });
+  
+      // Добавляем обработчик события resize для body
+      window.addEventListener('resize', function() {
+        updateIframeHeight();
+      });
+    </script>
 </body>
 </html>

@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Объявления / Запасной электронный дневник</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
         .news-container {
             display: flex;
             align-items: flex-start;
-            border: 1px solid #ddd;
             padding: 10px;
             border-radius: 20px;
-            margin-top: 20px;
-            margin-left: 10px;
-            margin-right: 10px;
+            margin: 15px;
+            background: rgb(255, 255, 255);
+            box-shadow: 0 5px 4px rgba(0, 0, 0, 0.25);
         }
         
         .news-image {
@@ -29,10 +32,10 @@
             width: 155px;
             flex: 0 0 auto;
             margin-right: 10px;
-            border: 1px solid #ddd;
             display: flex; justify-content: center;
             overflow: hidden;
             border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25) inset;
         }
         
         .news-image img {
@@ -46,7 +49,6 @@
         .news-title {
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 5px;
         }
         
         .news-text {
@@ -59,66 +61,186 @@
             color: gray;
         }
 
-        @media screen and (max-width:767px) {
+        summary::-webkit-details-marker {
+            display: none
+        }
+
+        summary {
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:600px) {
             .news-container {
                 display: block;
             }
             .news-image {
+                height: 180px;
                 width: 100%;
+                margin-bottom: 10px;
             }
         }
+
+        details[open] summary ~ * {
+            animation: sweep .5s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0%    {opacity: 0; margin-top: -10px}
+            100%  {opacity: 1; margin-top: 0px}
+        }
         </style>
-    <title>Новости</title>
 </head>
+
 <body>
-    <div class="news-container">
-        <div class="news-image">
-            <img src="https://navigator.edu54.ru/images/events/cover/188602efc91363c668f8adbaf758dd0d_big.jpg">
+    <!-- Модальное окно 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="https://i.pinimg.com/736x/65/55/f1/6555f1f9f35752f19656aaac9298cd8a.jpg" alt="Картинка" class="modal-image">
+            <div class="modal-message">
+                <p>Требуется домашняя работа на 13 сентября (пятница).</p>
+            </div>
+            <button class="modal-button" onclick="window.open('https://forms.yandex.ru/u/66e2c5a65d2a0628ccbf50f8/', '_blank')">Отправить домашнюю работу</button>
         </div>
-        <div class="news-content">
-            <details>
-                <summary>
-                    <div class="news-title">
-                        Программа «Путь к себе»
-                    </div>
-                </summary>
-                <div class="news-text">
-                    <p>Приглашаем ребят 13-17 лет в группу "Путь к себе".</p>
-                    <p>Занятия направлены на решение следующих задач:</p>
-                    <ul>
-                        <li>повысить уверенность в себе и своих силах;</li>
-                        <li>развить умение управлять своими эмоциями;</li>
-                        <li>научиться новым способам общения с другими;</li>
-                        <li>научиться правильно решать конфликтные ситуации, чувствовать свои границы и границы других.</li>
-                    </ul>
-                    <p>Старт: 2 октября​ 2024 года.</p>
-                    <p>Занятия проходят по средам с 9:30-11:00 (для 2 смены) и с 15:00-16:30 (для 1 смены).</p>
-                    <p>Программа рассчитана на 24 занятия в течение 6 месяцев</p>
-                    <p>Адрес: ул. Народная, 63.</p>
-                    <p>Записаться по тел.: <a href="tel:(383) 304-71-24">(383) 304-71-24</a> доп. 610 (с сотового #610#)</p>
-                    <p>Ведущие педагоги-психологи отдела кризисной психологии центра «Магистр»</p>
-                    <p>Подробная информация: <a href="https://navigator.edu54.ru/program/22919-programma-put-k-sebe">https://navigator.edu54.ru/program/22919-programma-put-k-sebe</a></p>
-                    <p>Программа «Путь к себе»</p>
-                    <p><a href="https://navigator.edu54.ru/program/22919-programma-put-k-sebe">https://navigator.edu54.ru/program/22919-programma-put-k-sebe</a></p>
+    </div>
+    -->
+    <div class="loader">
+        <div class="circle-spin-8"></div>
+    </div>
+    <main>
+        <nav>
+            <div id="head-nav">
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </label>
+                
+                <label id="overlay" for="sidebar-active"></label>
+
+                <div id="head-nav-left">
+                    <img src="favicon.svg" class="logo"> <h1>Запасной Электроный Дневник</h1>
                 </div>
-            </details>
-            <div class="news-about">
-                <p>Информация от Алисы Кувшид</p><p class="article-date" data-date="2024-09-19T11:17:00"></p>
+                <div id="head-nav-right">
+                    <label for="sidebar-active" class="close-sidebar-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </label>
+
+                    <a href="index.html"><i class="bx bxs-book"></i><br>Дневник</a>
+                    <a href="news.html"><i class="bx bxs-news"></i><br>Объявления</a>
+                    <a href="uchebniki.html"><i class="bx bx-library"></i><br>Учебники</a>
+                    <a href="teachers.html"><i class="bx bxs-group"></i><br>Люди</a>
+                    <a href="chat.html"><i class="bx bxs-chat"></i><br>Чаты</a>
+                </div>
             </div>
-            
-        </div>
-    </div>
-    <div class="news-container">
-        <div class="news-image">
-            <img src="https://school.nso.ru/assets/dist/logo.2d7f18b9.png">
-        </div>
-        <div class="news-content">
-            <div class="news-title">Восстановили работу электронного дневника</div>
-            <div class="news-text">
-                Электронный дневник снова заработал. Однако запасной сайт по-прежнему будет доступен и продолжит обновляться.
+        </nav>
+       <!-- Yandex.RTB R-A-12214195-1 -->
+        <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-12214195-1",
+                "type": "floorAd",
+                "platform": "desktop"
+            })
+        })
+        </script>
+        <!-- Yandex.RTB R-A-12214195-2 -->
+        <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-12214195-2",
+                "type": "floorAd",
+                "platform": "touch"
+            })
+        })
+        </script>
+        <div class="news-container">
+            <div class="news-image">
+                <img src="https://s.ura.news/images/news/upload/news/427/161/1052427161/535486_Obstanovka_na_ulitsah_goroda_vo_vremya_epidemii_koronavirusa_Chelyabinsk_obayavlenie_mi_snova_rabotaem_760x0_4054.2703.0.0.jpg">
+            </div>
+            <div class="news-content">
+                <details>
+                    <summary class="news-title">Возвращение сайта и важные изменения</summary>
+                    <div class="news-text">
+                        <p>Ранее работа сайта была приостановлена из-за отсутствия проблем с получением информации из Электронного дневника и Сферума. Однако с 13 октября сайт снова готов обновлять расписания и домашние задания.</p>
+                        <p>Помимо восстановления функциональности, были внесены существенные изменения, значительно улучшающие качество сайта:</p>
+                        <ul>
+                            <li><b>Изменён логотип</b>: был переделан на более современный.</li>
+                            <li><b>Новый раздел "Учебники"</b>: теперь вам не придется беспокоиться об отсутствии учебников, ведь у вас всегда будет электронный учебник под рукой. <i>Обратите внимание, что на данный момент доступен учебник только по информатике, и не все учебники могут быть включены в систему.</i></li>
+                            <li><b>Новый раздел "Люди"</b>: если вы забыли или не знаете, как зовут учителя, то теперь сможете посмотреть список учителей, распределенные по предметам.</li>
+                            <li><b>Просмотр файлов прямо на сайте, без скачивания</b>: ранее для просмотра изображений и документов требовалось их скачивание, но теперь их можно просматривать прямо в браузере на сайте. <i>Функция доступна только для самых свежих недель, начиная с 14 октября.</i></li>
+                            <li><b>Улучшение удобства сайта</b>: дизайн был слегка обновлен на более современный, улучшена прокрутка, объявления стали выглядеть удобнее.</li>
+                            <li><b>Новости теперь объявления</b>: в навигационной системе новости были исправлены как объявления.</li>
+                            <li><b>Удаление старых недель</b>: теперь, если количество недель на сайте превышает 7, первая 8-я неделя будет удалена вместе с закрепленными файлами.</li>
+                            <li><b>Исправлены ошибки</b>: проблемы с переключением недель, ошибка с расположением стрелки развертывания в разделе "Объявления" (новости).</li>
+                        </ul>
+                        <p>Если вы думаете, что это все изменения, то ошибаетесь! В ближайшем будущем планируется выпустить новое обновление, которое добавит новый раздел "Чат" с отдельной авторизацией (не влияющей на просмотр самого сайта). Это позволит избежать проблем с созданием групп в мессенджерах.</p>
+                        <p>Если у вас возникли вопросы или появились предложения для дальнейших изменений, то нажмите <a href="index.html#contacts">здесь</a>.</p>
+                    </div>
+                </details>
+                <div class="news-about">
+                    <p>Информация от Данияра</p><p class="article-date" data-date="2024-10-13T13:30:00"></p>
+                </div>
             </div>
         </div>
-    </div>
+    
+        <div class="news-container">
+            <div class="news-image">
+                <img src="https://navigator.edu54.ru/images/events/cover/188602efc91363c668f8adbaf758dd0d_big.jpg">
+            </div>
+            <div class="news-content">
+                <details>
+                    <summary class="news-title">Программа «Путь к себе»</summary>
+                    <div class="news-text">
+                        <p>Приглашаем ребят 13-17 лет в группу "Путь к себе".</p>
+                        <p>Занятия направлены на решение следующих задач:</p>
+                        <ul>
+                            <li>повысить уверенность в себе и своих силах;</li>
+                            <li>развить умение управлять своими эмоциями;</li>
+                            <li>научиться новым способам общения с другими;</li>
+                            <li>научиться правильно решать конфликтные ситуации, чувствовать свои границы и границы других.</li>
+                        </ul>
+                        <p>Старт: 2 октября​ 2024 года.</p>
+                        <p>Занятия проходят по средам с 9:30-11:00 (для 2 смены) и с 15:00-16:30 (для 1 смены).</p>
+                        <p>Программа рассчитана на 24 занятия в течение 6 месяцев</p>
+                        <p>Адрес: ул. Народная, 63.</p>
+                        <p>Записаться по тел.: <a href="tel:(383) 304-71-24">(383) 304-71-24</a> доп. 610 (с сотового #610#)</p>
+                        <p>Ведущие педагоги-психологи отдела кризисной психологии центра «Магистр»</p>
+                        <p>Подробная информация: <a href="https://navigator.edu54.ru/program/22919-programma-put-k-sebe">https://navigator.edu54.ru/program/22919-programma-put-k-sebe</a></p>
+                        <p>Программа «Путь к себе»</p>
+                        <p><a href="https://navigator.edu54.ru/program/22919-programma-put-k-sebe">https://navigator.edu54.ru/program/22919-programma-put-k-sebe</a></p>
+                    </div>
+                </details>
+                <div class="news-about">
+                    <p>Информация от Алисы Кувшид</p><p class="article-date" data-date="2024-09-19T11:17:00"></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="news-container">
+            <div class="news-image">
+                <img src="https://school.nso.ru/assets/dist/logo.2d7f18b9.png">
+            </div>
+            <div class="news-content">
+                <div class="news-title">Восстановили работу электронного дневника</div>
+                <div class="news-text">
+                    Электронный дневник снова заработал. Однако запасной сайт по-прежнему будет доступен и продолжит обновляться.
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Источник информации предоставил Данияр</p>
+            <p>Связаться с помощью:</p>
+            <div id="contacts">
+                <a href="https://wa.me/79133885667" class="contact-wa">
+                    <i class="bx bxl-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/confogam" class="contact-tg">
+                    <i class="bx bxl-telegram"></i> Telegram
+                </a>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
     <script>
         // Функция для форматирования даты
         function getFormattedDate(date) {
@@ -167,7 +289,14 @@
         // Вызов функции обновления времени публикации статьи при загрузке страницы
         document.addEventListener('DOMContentLoaded', updateArticleDates);
         setInterval(updateArticleDates, 60000); // обновлять каждую минуту
+
+        // Функция для обновления высоты iframe
+        function updateBodyHeight() {
+            const siteBody = body;
+            const height = siteBody.scrollHeight;
+            iframe.style.height = `${height}px`;
+        }
     </script>
 </body>
-</body>
+</html>
 </html>

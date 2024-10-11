@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник</title>
+    <link rel="stylesheet" href="../dnevnik.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <section class="diary">
+            <h1>30 сентября - 6 октября</h1>
+            <div id="mobile-device">
+                <table class="tg"><thead>
+                  <tr>
+                    <th class="tg-c3ow" colspan="2">Сентябрь</th>
+                  </tr></thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-baqh" colspan="2">30, понедельник</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 2 ряд, 1 парта</td>
+                  </tr>
+                  <thead>
+                    <tr>
+                      <th class="tg-c3ow" colspan="2">Октябрь</th>
+                    </tr></thead>
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">1, вторник</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 2 ряд, 2 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">2, среда</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 2 ряд, 3 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">3, четверг</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 2 ряд, 4 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">4, пятница</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 2 ряд, 5 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">5, Суббота</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-weekend" colspan="2">Выходной</td>
+                  </tr>
+                </tbody>
+                </table>
+            </div>
+    </main>
+    <script>
+      // Отправляем сообщение о высоте iframe родительской странице
+      function updateIframeHeight() {
+        window.parent.postMessage({ type: 'iframeHeight', height: document.body.scrollHeight }, '*');
+      }
+  
+      // Отправляем сообщение при первой загрузке
+      window.addEventListener('DOMContentLoaded', function() {
+        updateIframeHeight();
+      });
+  
+      // Добавляем обработчик события resize для body
+      window.addEventListener('resize', function() {
+        updateIframeHeight();
+      });
+    </script>
+</body>
+</html>

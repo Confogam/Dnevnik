@@ -3,15 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Информационный сайт для класса</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Запасной электронный дневник</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Yandex.RTB -->
     <script>window.yaContextCb=window.yaContextCb||[]</script>
     <script src="https://yandex.ru/ads/system/context.js" async></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+        .controls {
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex; /* Добавляем flexbox для управления кнопками */
+            justify-content: center; /* Центрируем кнопки по горизонтали */
+            flex-wrap: wrap; /* Разрешаем кнопкам переноситься на новую строку */
+        }
+
+        button {
+            font-family: "Nunito", Arial, sans-serif;
+            padding: 10px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px; /* Добавляем отступ между кнопками */
+        }
+
+        .controls button {
+            box-shadow: 0 1.5px 6px rgba(0, 0, 0, 0.25);
+            background-color: white;
+            border-radius: 10px;
+            border: none;
+        }
+
+        iframe {
+            width: 100%;
+            overflow: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        iframe::-webkit-scrollbar { 
+            width: 0;
+            height: 0;
+        }
+
+        html {
+            background: rgba(0, 0, 0, 0)
+        }
+
+        /* Изменения для медиа-запроса */
+        @media screen and (max-width:800px) {
+            .controls button {
+                width: 46%;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
-<body style="background: url(media/imgs/backgroung.png) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">
+<body>
     <!-- Модальное окно 
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -24,15 +80,35 @@
         </div>
     </div>
     -->
+    <div class="loader">
+        <div class="circle-spin-8"></div>
+    </div>
     <main>
         <nav>
-            <ul>
-                <li><a href="#" data-url="dnevnik.html">Дневник</a></li>
-                <li><a href="#" data-url="news.html">Новости</a></li>
-            </ul>
-            <div class="slider"></div>
+            <div id="head-nav">
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </label>
+                
+                <label id="overlay" for="sidebar-active"></label>
+
+                <div id="head-nav-left">
+                    <img src="favicon.svg" class="logo"> <h1>Запасной Электроный Дневник</h1>
+                </div>
+                <div id="head-nav-right">
+                    <label for="sidebar-active" class="close-sidebar-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </label>
+
+                    <a href="index.html"><i class="bx bxs-book"></i><br>Дневник</a>
+                    <a href="news.html"><i class="bx bxs-news"></i><br>Объявления</a>
+                    <a href="uchebniki.html"><i class="bx bx-library"></i><br>Учебники</a>
+                    <a href="teachers.html"><i class="bx bxs-group"></i><br>Люди</a>
+                    <a href="chat.html"><i class="bx bxs-chat"></i><br>Чаты</a>
+                </div>
+            </div>
         </nav>
-        <iframe id="content" src="dnevnik.html" frameborder="0"></iframe>
        <!-- Yandex.RTB R-A-12214195-1 -->
         <script>
         window.yaContextCb.push(() => {
@@ -53,11 +129,107 @@
             })
         })
         </script>
+        
+        <div class="controls">
+            <button id="prevWeek"><i class="bx bxs-left-arrow-alt"></i> Предыдущая</button>
+            <button id="nextWeek">Следующая<i class="bx bxs-right-arrow-alt"></i></button>
+        </div>
+        <iframe id="weekView" src="weeks/week5.html" frameborder="0"></iframe>
         <footer>
-            <p><i>Источник информации предоставил Данияр</i></p>
+            <p>Источник информации предоставил Данияр</p>
+            <p>Связаться с помощью:</p>
+            <div id="contacts">
+                <a href="https://wa.me/79133885667" class="contact-wa">
+                    <i class="bx bxl-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/confogam" class="contact-tg">
+                    <i class="bx bxl-telegram"></i> Telegram
+                </a>
+            </div>
         </footer>
     </main>
     <script src="script.js"></script>
+    <script>
+        const iframe = document.getElementById('weekView');
+        let currentWeek = 5; // начальная неделя
+        const maxWeeks = 52; // максимально недель
+    
+        // Функция для загрузки новой недели в iframe
+        function loadWeek(weekNumber) {
+          const weekUrl = `weeks/week${weekNumber}.html`;
+    
+          // Проверяем существование страницы
+          fetch(weekUrl)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Страница ${weekUrl} не найдена`);
+                currentWeek = currentWeek - 1;
+              }
+              iframe.src = weekUrl;
+            })
+            .catch(error => {
+              console.error(error.message);
+              currentWeek = currentWeek - 1;
+              // Можно добавить обработку ошибки здесь, например, показ сообщения об ошибке
+            });
+        }
+    
+        // Обработчики событий для кнопок
+        document.getElementById('prevWeek').addEventListener('click', () => {
+          if (currentWeek > 1) {
+            currentWeek--;
+            loadWeek(currentWeek);
+          }
+        });
+    
+        document.getElementById('nextWeek').addEventListener('click', () => {
+          if (currentWeek < maxWeeks) {
+            currentWeek++;
+            loadWeek(currentWeek);
+          }
+        });
+    
+        // Загрузка начальной недели при загрузке страницы
+        loadWeek(currentWeek);
+    
+        // Приём сообщения от iframe
+        window.addEventListener('message', function(event) {
+          if (event.data.type === 'iframeHeight') {
+            document.getElementById('weekView').style.height = event.data.height + 'px';
+          }
+        });
+    
+        // Сбрасываем высоту iframe при переходе на другую неделю
+        document.querySelectorAll('.controls button').forEach(link => {
+          link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const newWeekUrl = `weeks/week${currentWeek}.html`; //  Используем  currentWeek  для  проверки
+    
+            // Проверяем существование страницы
+            fetch(newWeekUrl)
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error(`Страница ${newWeekUrl} не найдена`);
+                }
+    
+                // Обновляем iframe 
+                document.getElementById('weekView').src = newWeekUrl;
+    
+                // Сбрасываем высоту iframe
+                document.getElementById('weekView').style.height = 'auto'; 
+    
+                // После загрузки новой страницы в iframe, обновляем его высоту
+                iframe.onload = function() {
+                  document.getElementById('weekView').style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                };
+              })
+              .catch(error => {
+                console.error(error.message);
+              });
+          });
+        });
+    
+      </script>
 </body>
 </html>
 </html>

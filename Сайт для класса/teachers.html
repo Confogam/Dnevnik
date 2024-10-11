@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Люди / Запасной электронный дневник</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+        section h1 {
+            text-align: center;
+            background: rgba(255, 255, 255);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .button_1725952662869 {
+            display: inline-block !important;
+            text-decoration: none !important;
+            background-color: rgb(95, 135, 255) !important;
+            color: #ffffff !important;
+            border: 2px solid rgb(36, 91, 255) !important;
+            border-radius: 5px !important;
+            padding: 2% 1% !important; 
+            transition: all 0.2s ease !important;
+        }
+        .button_1725952662869:hover{
+            text-decoration: none !important; 
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border-color: rgb(36, 91, 255) !important;
+        }
+
+        .tg  {
+            border-collapse:collapse;
+            border-color:#aaa;
+            border-spacing:0;
+        }
+        .tg td {
+            background-color:#fff;
+            border-color:#aaa;
+            border-style:solid;
+            border-width:1px;
+            color:#333;
+            font-size:16px;
+            overflow:hidden;
+            padding:10px 5px;
+            word-break:normal;
+        }
+        .tg .tg-baqh{
+            text-align:center;
+            vertical-align:top;
+        }
+        .tg .tg-c3ow{
+            border-color:inherit;
+            text-align:center;
+            vertical-align:top;
+        }
+        .tg .tg-0lax{
+            text-align:left;
+            vertical-align:top;
+            width: 50%;
+        }
+        .tg .tg-dg7a{
+            background-color:#FCFBE3;
+            text-align:left;
+            vertical-align:top
+        }
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%; /* Делает таблицу растягивающейся на 100% ширины родительского элемента */
+            overflow-x: auto; /* Добавляет горизонтальную прокрутку, если таблица слишком широкая */
+        }
+        .tg td, .tg th {
+            background-color: #fff;
+            border: 1px solid #aaa;
+            color: #333;
+            font-size: 16px;
+            padding: 10px 5px;
+            word-break: break-word; /* Разрывает длинные слова для предотвращения выхода за пределы ячейки */
+        }
+        .tg th {
+            background-color: rgb(54, 94, 212);
+            color: #fff;
+            font-size: large;
+        }
+        .tg .tg-benw {
+            background-color: #FCFBE3;
+            text-align: left;
+        }
+        .tg .tg-c3ow {
+            text-align: center;
+        }
+        .tg .tg-fzdr {
+            text-align: center;
+        }
+        .tg .tg-wo29 {
+            text-align: left;
+        }
+        .tg .tg-weekend {
+            text-align: center;
+            color: red;
+            background-color: rgb(255, 187, 187);
+            font-weight: bold;
+        }
+        /*
+        @media screen and (max-width:767px) {
+        div#computer-device {
+            display: none;
+        }
+        }
+
+        @media screen and (min-width:767px) and (max-width:1023px) {
+        div#computer-device {
+            display: none;
+        }
+        }
+
+        @media screen and (min-width:1024px) {
+        div#mobile-device {
+            display: none;
+        }
+        }
+        */
+        @media (max-width: 600px) {
+            .tg th, .tg td {
+                font-size: 12px; /* Уменьшает размер шрифта для маленьких экранов */
+                padding: 8px 4px; /* Уменьшает отступы внутри ячеек */
+            }
+        }
+
+        tr {
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Модальное окно 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="https://i.pinimg.com/736x/65/55/f1/6555f1f9f35752f19656aaac9298cd8a.jpg" alt="Картинка" class="modal-image">
+            <div class="modal-message">
+                <p>Требуется домашняя работа на 13 сентября (пятница).</p>
+            </div>
+            <button class="modal-button" onclick="window.open('https://forms.yandex.ru/u/66e2c5a65d2a0628ccbf50f8/', '_blank')">Отправить домашнюю работу</button>
+        </div>
+    </div>
+    -->
+    <div class="loader">
+        <div class="circle-spin-8"></div>
+    </div>
+    <main>
+        <nav>
+            <div id="head-nav">
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </label>
+                
+                <label id="overlay" for="sidebar-active"></label>
+
+                <div id="head-nav-left">
+                    <img src="favicon.svg" class="logo"> <h1>Запасной Электроный Дневник</h1>
+                </div>
+                <div id="head-nav-right">
+                    <label for="sidebar-active" class="close-sidebar-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </label>
+
+                    <a href="index.html"><i class="bx bxs-book"></i><br>Дневник</a>
+                    <a href="news.html"><i class="bx bxs-news"></i><br>Объявления</a>
+                    <a href="uchebniki.html"><i class="bx bx-library"></i><br>Учебники</a>
+                    <a href="teachers.html"><i class="bx bxs-group"></i><br>Люди</a>
+                    <a href="chat.html"><i class="bx bxs-chat"></i><br>Чаты</a>
+                </div>
+            </div>
+        </nav>
+       <!-- Yandex.RTB R-A-12214195-1 -->
+        <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-12214195-1",
+                "type": "floorAd",
+                "platform": "desktop"
+            })
+        })
+        </script>
+        <!-- Yandex.RTB R-A-12214195-2 -->
+        <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-12214195-2",
+                "type": "floorAd",
+                "platform": "touch"
+            })
+        })
+        </script>
+
+        <table class="tg"><thead>
+            <tr>
+            <th class="tg-c3ow" colspan="2">Администрация</th>
+            </tr></thead>
+        <tbody>
+            <tr>
+            <td class="tg-0lax">Начальник отдела содержания и качества СОО и ГИА</td>
+            <td class="tg-0lax">Таланкина Нина Нугзаровна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Начальник отдела содержания и качества ООО</td>
+            <td class="tg-0lax">Шабунина Ольга Сергеевна<br>Кушнарева Галина Александровна<br>Волкова Ольга Андреевна<br>Кощаева Татьяна Викторовна<br>Коваль Ираида Тлектесовна<br>Фогель Елена Александровна<br>Матвиенко Ксения Николаевна<br>Власова Ольга Владимирована</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Заместитель директора по ВР</td>
+            <td class="tg-0lax">Демидова Наталья Михайловна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Заместитель директора по УВР</td>
+            <td class="tg-0lax">Никифорова Марина Валерьевна<br>Руднева Мария Сергеевна<br>Локатинова Анастасия Евгеньевна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Директор</td>
+            <td class="tg-0lax">Третьякова Елена Николаевна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Администратор</td>
+            <td class="tg-0lax">Ермолович Ольга Владиславовна<br>Малолеткина Наталья Павловна</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+            <th class="tg-c3ow" colspan="2">Специалисты</th>
+            </tr></thead>
+        <tbody>
+            <tr>
+            <td class="tg-0lax">Медсестра</td>
+            <td class="tg-0lax">Булычева Наталья Владимирована<br>Локатинова Анастасия Евгеньевна<br>Орлова Мария Николаевна</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+            <th class="tg-c3ow" colspan="2">Учителя</th>
+            </tr></thead>
+        <tbody>
+            <tr>
+            <td class="tg-0lax">Классный руководитель</td>
+            <td class="tg-0lax">Галивец Любовь Павловна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Алгебра, Вероятность и статистика, Геометрия и Решение практических задач по геометрии</td>
+            <td class="tg-0lax">Шестернина Евгения Олеговна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Английский язык</td>
+            <td class="tg-0lax">Позарева Ирина Васильевна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Биология</td>
+            <td class="tg-0lax">Красильников Даниил Сергеевич</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">География</td>
+            <td class="tg-0lax">Телешихина Инна Петровна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Информатика и Физика</td>
+            <td class="tg-0lax">Абуев Андрей Мажитович</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">История и Обществознание</td>
+            <td class="tg-0lax">Никитина Ольга Александровна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Литература, Русский язык и Учись писать сочинение</td>
+            <td class="tg-0lax">Галивец Любовь Павловна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Музыка</td>
+            <td class="tg-0lax">Дмитриева Оксана Константиновна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">ОБиЗР</td>
+            <td class="tg-0lax">Печеный Сергей Анатольевич</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Труд (технология)</td>
+            <td class="tg-0lax">Русанов Лев Александрович<br>Шаход Виталий Алексеевич</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Физкультура</td>
+            <td class="tg-0lax">Магурдумян Давид Гарикович</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Функциональная грамотность</td>
+            <td class="tg-0lax">Горлова Елена Александровна</td>
+            </tr>
+            <tr>
+            <td class="tg-0lax">Химия</td>
+            <td class="tg-0lax">Пермякова Татьяна Петровна</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+            <th class="tg-c3ow" colspan="2">Обучающиеся</th>
+            </tr></thead>
+        <tbody>
+            <tr>
+                <td class="tg-0lax" colspan="2">Андросюк Гордей</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Астафьев Алексей</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Бадмаев Артём</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Борздая Варвара</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Бугаец Ксения</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Винокурова Полина</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Винокурова София</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Волосатов Артур</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Галибина Татьяна</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Гуляева Арина</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Зеленина Милана</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Казаков Егор</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Казанцев Даниил</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Калашников Иван</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Колесихина Алина</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Комиссарова Анастасия</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Масленникова Ксения</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Махмудова Хакимахон</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Натура Сергей</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Никулин Михаил</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Пелехова Маргарита</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Позняк Николай</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Сагайдак Матвей</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Садовников Кирилл</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Самородов Элгуджа</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Сафин Данияр</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Севрюков Давид</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Тритюхина Аделина</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Трофимова Алёна</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Туркин Никита</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Тютяков Иван</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Хворов Богдан</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Чубик Ангелина</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Шестаков Владислав</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax" colspan="2">Штай Ангелина</td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <footer>
+            <p>Источник информации предоставил Данияр</p>
+            <p>Связаться с помощью:</p>
+            <div id="contacts">
+                <a href="https://wa.me/79133885667" class="contact-wa">
+                    <i class="bx bxl-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/confogam" class="contact-tg">
+                    <i class="bx bxl-telegram"></i> Telegram
+                </a>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+
+</body>
+</html>
+</html>

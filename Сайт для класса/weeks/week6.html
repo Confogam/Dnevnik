@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник</title>
+    <link rel="stylesheet" href="../dnevnik.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <section class="diary">
+            <h1>14 октября - 20 октября</h1>
+            <div id="mobile-device">
+                <table class="tg"><thead>
+                  <tr>
+                    <th class="tg-c3ow" colspan="2">Октябрь</th>
+                  </tr></thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-baqh" colspan="2">14, понедельник</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">08.50-09.30<br>Литература (ДО)</td>
+                    <td class="tg-0lax">Платформа, урок 10</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">13.30-14.10<br>Разговор о важном 201А</td>
+                    <td class="tg-0lax"></td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">14.30-15.10<br>Английский язык 410А</td>
+                    <td class="tg-0lax">стр. 27, упр. 3 - устно, составить 10 вопросов к тесту</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">15.30-16.10<br>Физика 408А</td>
+                    <td class="tg-0lax">§4, ответить на вопросы</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">16.30-17.10<br>Русский язык 201А</td>
+                    <td class="tg-0lax">Повторить словарные слова АБВГД</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">17.20-18.00<br>Алгебра 404А</td>
+                    <td class="tg-0lax">Без задания</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">18.10-18.50<br>Биология 208А</td>
+                    <td class="tg-0lax">Завершить конспект по презентации.<p><a href="../media/docs/evolyuciya_krovoobrascheniya.pptx" class="button_1725952662869" target="_blank">Посмотреть</a> <a href="../media/docs/evolyuciya_krovoobrascheniya.pptx" class="button_1725952662869" target="_blank" download="">Скачать</a></p></td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 3 ряд, 1 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">15, вторник</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 3 ряд, 2 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">16, среда</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 3 ряд, 3 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">17, четверг</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 3 ряд, 4 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">18, пятница</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 3 ряд, 5 парта</td>
+                  </tr>
+
+
+                  <tr>
+                    <td class="tg-baqh" colspan="2">19, Суббота</td>
+                  </tr>
+                </tbody>
+                </table>
+            </div>
+    </main>
+    <script>
+      // Отправляем сообщение о высоте iframe родительской странице
+      function updateIframeHeight() {
+        window.parent.postMessage({ type: 'iframeHeight', height: document.body.scrollHeight }, '*');
+      }
+  
+      // Отправляем сообщение при первой загрузке
+      window.addEventListener('DOMContentLoaded', function() {
+        updateIframeHeight();
+      });
+  
+      // Добавляем обработчик события resize для body
+      window.addEventListener('resize', function() {
+        updateIframeHeight();
+      });
+    </script>
+</body>
+</html>

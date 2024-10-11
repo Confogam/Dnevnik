@@ -1,10 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Nunito", Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    background: rgba(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 25vw;
+    margin-right: 25vw;
 }
 
 main {
@@ -15,16 +26,131 @@ main {
 .button_1725952662869 {
     display: inline-block !important;
     text-decoration: none !important;
-    background-color: #ffb400 !important;
+    background-color: rgb(95, 135, 255) !important;
     color: #ffffff !important;
-    border: 2px solid #847200 !important;
+    border: 2px solid rgb(36, 91, 255) !important;
     border-radius: 5px !important;
     padding: 2% 1% !important; 
+    font-size: 100%;
     transition: all 0.2s ease !important;
 }
 .button_1725952662869:hover{
     text-decoration: none !important; 
     background-color: #ffffff !important;
     color: #000000 !important;
-    border-color: #847200 !important;
+    border-color: rgb(36, 91, 255) !important;
+}
+
+.tg  {
+    border-collapse:collapse;
+    border-color:#aaa;
+    border-spacing:0;
+  }
+  .tg td {
+    background-color:#fff;
+    border-color:#aaa;
+    border-style:solid;
+    border-width:1px;
+    color:#333;
+    font-size:14px;
+    overflow:hidden;
+    padding:10px 5px;
+    word-break:normal;
+  }
+  .tg .tg-baqh{
+    text-align:center;
+    vertical-align:top;
+  }
+  .tg .tg-c3ow{
+    border-color:inherit;
+    text-align:center;
+    vertical-align:top;
+  }
+  .tg .tg-0lax{
+    text-align:left;
+    vertical-align:top;
+  }
+  .tg .tg-dg7a{
+    background-color:#FCFBE3;
+    text-align:left;
+    vertical-align:top
+  }
+  .tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%; /* Делает таблицу растягивающейся на 100% ширины родительского элемента */
+    overflow-x: auto; /* Добавляет горизонтальную прокрутку, если таблица слишком широкая */
+}
+.tg td, .tg th {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    color: #333;
+    font-size: 14px;
+    padding: 10px 5px;
+    word-break: break-word; /* Разрывает длинные слова для предотвращения выхода за пределы ячейки */
+}
+.tg th {
+    background-color: rgb(54, 94, 212);
+    color: #fff;
+    font-size: large;
+}
+.tg .tg-benw {
+    background-color: #FCFBE3;
+    text-align: left;
+}
+.tg .tg-c3ow {
+    text-align: center;
+}
+.tg .tg-fzdr {
+    text-align: center;
+}
+.tg .tg-wo29 {
+    text-align: left;
+}
+.tg .tg-weekend {
+    text-align: center;
+    color: red;
+    background-color: rgb(255, 187, 187);
+    font-weight: bold;
+}
+/*
+@media screen and (max-width:767px) {
+  div#computer-device {
+    display: none;
+  }
+}
+
+@media screen and (min-width:767px) and (max-width:1023px) {
+  div#computer-device {
+    display: none;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  div#mobile-device {
+    display: none;
+  }
+}
+*/
+@media (max-width: 600px) {
+    .tg th, .tg td {
+        font-size: 12px; /* Уменьшает размер шрифта для маленьких экранов */
+        padding: 8px 4px; /* Уменьшает отступы внутри ячеек */
+    }
+}
+
+tr {
+    border-radius: 50px;
+}
+
+@media (max-width: 750px) {
+    h1 {
+        margin-left: auto;
+        margin-right: auto;
+        padding: auto;
+    }
+}
+
+body::-webkit-scrollbar {
+    display: none;  /* для Chrome, Safari и Opera */
 }
