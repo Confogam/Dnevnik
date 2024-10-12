@@ -6,8 +6,26 @@
     <title>Дневник</title>
     <link rel="stylesheet" href="../dnevnik.css">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+  <div id="link-modal" class="link-modal">
+      <div class="link-modal-content">
+        <span class="close-link-modal" onclick="closeModalLink()">&times;</span>
+        <iframe id="link-modal-iframe" src=""></iframe>
+        <!-- Yandex.RTB R-A-12214195-3 -->
+        <div id="yandex_rtb_R-A-12214195-3"></div>
+        <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-12214195-3",
+                "renderTo": "yandex_rtb_R-A-12214195-3"
+            })
+        })
+        </script>
+      </div>
+  </div>
     <main>
         <section class="diary">
             <h1>14 октября - 20 октября</h1>
@@ -46,7 +64,10 @@
                   </tr>
                   <tr>
                     <td class="tg-0lax">18.10-18.50<br>Биология 208А</td>
-                    <td class="tg-0lax">Завершить конспект по презентации.<p><a href="../media/docs/evolyuciya_krovoobrascheniya.pptx" class="button_1725952662869" target="_blank">Посмотреть</a> <a href="../media/docs/evolyuciya_krovoobrascheniya.pptx" class="button_1725952662869" target="_blank" download="">Скачать</a></p></td>
+                    <td class="tg-0lax">Завершить конспект по презентации.<p>
+                                        <a href="https://1drv.ms/p/s!AlpHkSrQlsl2iQHeJ1qY2IZQieNd?embed=1&em=2" class="button_1725952662869" onclick="openModalLink(this)"><i class="material-icons">visibility</i> Посмотреть</a>
+                                        <a href="../media/docs/evolyuciya_krovoobrascheniya.pptx" class="button_1725952662869" target="_blank" download=""><i class="material-icons">download</i> Скачать</a>
+                                      </p></td>
                   </tr>
                   <tr>
                     <td class="tg-0lax" colspan="2">Дежурство:<br>В кабинете: 3 ряд, 1 парта</td>
@@ -92,6 +113,7 @@
                 </table>
             </div>
     </main>
+    <script src="../script.js"></script>
     <script>
       // Отправляем сообщение о высоте iframe родительской странице
       function updateIframeHeight() {

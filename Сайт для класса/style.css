@@ -63,7 +63,6 @@ nav img.logo {
     text-align: center;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    position: relative;
     transition: 0.2s ease 0s;
 }
 
@@ -310,10 +309,12 @@ body.loaded .loader {
     border: 1px solid #888;
     width: 70%; /* Изменил ширину на 70% */
     height: 80%; /* Добавил высоту 60% */
+    z-index: 99999;
   }
 
   #link-modal-iframe {
-    height: 90%;
+    height: 73%;
+    z-index: 99999;
   }
   
   .close-link-modal {
@@ -336,6 +337,7 @@ body.loaded .loader {
         flex-direction: column; /* Кнопки в столбик */
         gap: 15px; /* Больше отступа между кнопками */
     }
+
 }
 
 @media screen and (max-width:1000px) {
@@ -386,5 +388,49 @@ body.loaded .loader {
         top: 0;
         right: 0;
         z-index: 980;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .ucheb-cont {
+        width: 80% !important;
+        margin: 0 auto;
+    }
+    .ucheb-btns a {
+        width: 40% !important;
+        font-size: 16px !important;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .ucheb-cont {
+        width: 80vw !important;
+        margin: 0 auto !important;
+    }
+    .ucheb-btns a {
+        width: 40% !important;
+        font-size: 16px !important;
+    }
+}
+
+@media screen and (max-width:769px) {
+    .ucheb-cont img {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .ucheb-cont {
+        width: 35%;
+    }
+    .ucheb-btns a {
+        width: 40%;
+        font-size: 16px !important;
+    }
+}
+
+@media screen and (max-height:415px) {
+    #head-nav-right a{
+        margin: 0;
+        padding: 4px;
+        scale: 0.96;
     }
 }
