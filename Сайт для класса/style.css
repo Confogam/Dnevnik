@@ -308,13 +308,14 @@ body.loaded .loader {
     padding: 20px;
     border: 1px solid #888;
     width: 70%; /* Изменил ширину на 70% */
-    height: 80%; /* Добавил высоту 60% */
+    height: 90%; /* Добавил высоту 60% */
     z-index: 99999;
   }
 
   #link-modal-iframe {
-    height: 73%;
+    height: 73vh;
     z-index: 99999;
+    width: 100%;
   }
   
   .close-link-modal {
